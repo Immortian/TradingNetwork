@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using TradingNetwork.API.Commands.CreateCommands;
@@ -10,7 +9,7 @@ using TradingNetwork.API.Models;
 
 namespace TradingNetwork.API.Controllers
 {
-    [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -48,7 +47,7 @@ namespace TradingNetwork.API.Controllers
         [HttpPut]
         public void Put([FromBody] Product value)
         {
-            if (value.Id != null && _context.Products.Where(x => x.Id == value.Id).Any())
+            if (_context.Products.Where(x => x.Id == value.Id).Any())
             {
                 _context.Update(value);
                 _context.SaveChanges();
