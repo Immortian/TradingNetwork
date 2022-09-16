@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TradingNetwork.API.Commands.UpdateCommands
+namespace TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.UpdateSalesPointCommand
 {
     public class UpdateSalesPointCommand
     {

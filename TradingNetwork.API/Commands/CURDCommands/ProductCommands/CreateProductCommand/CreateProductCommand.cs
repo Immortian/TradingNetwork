@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TradingNetwork.API.Commands.CreateCommands
+namespace TradingNetwork.API.Commands.CURDCommands.ProductCommands.CreateProductCommand
 {
     public class CreateProductCommand
     {

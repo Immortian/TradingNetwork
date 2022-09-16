@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TradingNetwork.API.Models;
 
-namespace TradingNetwork.API.Commands.CreateCommands
+namespace TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.CreateSalesPointCommand
 {
     public class CreateSalesPointCommand
     {

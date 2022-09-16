@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TradingNetwork.API.Commands.CreateCommands;
-using TradingNetwork.API.Commands.UpdateCommands;
+using TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.CreateProvidedProductCommand;
+using TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.UpdateProvidedProductsCommand;
+using TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.CreateSalesPointCommand;
+using TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.UpdateSalesPointCommand;
 using TradingNetwork.API.Data;
 using TradingNetwork.API.Models;
 
@@ -36,26 +35,17 @@ namespace TradingNetwork.API.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] CreateSalesPointCommand value)
+        public async Task Post([FromBody] CreateSalesPointCommand value)
         {
-            var product = new SalesPoint
-            {
-                Name = value.Name
-            };
-            _context.SalesPoints.Add(product);
-            _context.SaveChanges();
+            var handler = new CreateSalesPointCommandHandler(_context);
+            await handler.Create(value);
         }
 
         [HttpPut]
-        public void Put([FromBody] UpdateSalesPointCommand value)
+        public async Task Put([FromBody] UpdateSalesPointCommand value)
         {
-            if (_context.SalesPoints.Where(x => x.Id == value.Id).Any())
-            {
-                var current = _context.SalesPoints.Where(x => x.Id == value.Id).FirstOrDefault();
-                current.Name = value.Name;
-                _context.Update(current);
-                _context.SaveChanges();
-            }
+            var handler = new UpdateSalesPointCommandHandler(_context);
+            await handler.Update(value);
         }
 
         [HttpDelete("{id}")]
@@ -83,34 +73,17 @@ namespace TradingNetwork.API.Controllers
         }
 
         [HttpPost("ProvidedProducts")]
-        public void PostPProducts([FromBody] CreateProvidedProductCommand value)
+        public async Task PostPProducts([FromBody] CreateProvidedProductCommand value)
         {
-            var product = new ProvidedProduct
-            {
-                ProductId = value.ProductId,
-                SalesPointId = value.SalesPointId,
-                ProductQuantity = value.ProductQuantity
-            };
-            _context.ProvidedProducts.Add(product);
-            _context.SaveChanges();
+            var handler = new CreateProvidedProductCommandHandler(_context);
+            await handler.Create(value);
         }
 
         [HttpPut("ProvidedProducts")]
-        public void PutPProduct([FromBody] UpdateProvidedProductCommand value)
+        public async Task PutPProduct([FromBody] UpdateProvidedProductCommand value)
         {
-            if (_context.ProvidedProducts.Where(x => x.SalesPointId == value.SalesPointId 
-                                                  && x.ProductId == value.ProductId).Any())
-            {
-                var current = _context.ProvidedProducts
-                    .Where(x => x.SalesPointId == value.SalesPointId
-                        && x.ProductId == value.ProductId)
-                    .FirstOrDefault();
-
-                current.ProductQuantity = value.ProductQuantity;
-
-                _context.Update(current);
-                _context.SaveChanges();
-            }
+            var handler = new UpdateProvidedProductsCommandHandler(_context);
+            await handler.Update(value);
         }
 
         [HttpDelete("{id}/ProvidedProducts/{pid}")]

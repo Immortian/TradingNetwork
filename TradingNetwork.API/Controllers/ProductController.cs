@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using TradingNetwork.API.Commands.CreateCommands;
+using System.Threading.Tasks;
+using TradingNetwork.API.Commands.CURDCommands.ProductCommands.CreateProductCommand;
+using TradingNetwork.API.Commands.CURDCommands.ProductCommands.UpdateProductCommand;
 using TradingNetwork.API.Data;
 using TradingNetwork.API.Models;
 
@@ -33,25 +35,17 @@ namespace TradingNetwork.API.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] CreateProductCommand value)
+        public async Task Post([FromBody] CreateProductCommand value)
         {
-            var product = new Product
-            {
-                Name = value.Name,
-                Price = value.Price
-            };
-            _context.Products.Add(product);
-            _context.SaveChanges();
+            var handler = new CreateProductCommandHandler(_context);
+            await handler.Create(value);
         }
 
         [HttpPut]
-        public void Put([FromBody] Product value)
+        public async Task Put([FromBody] Product value)
         {
-            if (_context.Products.Where(x => x.Id == value.Id).Any())
-            {
-                _context.Update(value);
-                _context.SaveChanges();
-            }
+            var handler = new UpdateProductComandHandler(_context);
+            await handler.Update(value);
         }
 
         [HttpDelete("{id}")]

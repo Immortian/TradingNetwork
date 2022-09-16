@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TradingNetwork.API.Commands.UpdateCommands
+namespace TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.CreateProvidedProductCommand
 {
-    public class UpdateProvidedProductCommand
+    public class CreateProvidedProductCommand
     {
         public int ProductId { get; set; }
         public int SalesPointId { get; set; }
