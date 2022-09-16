@@ -8,10 +8,16 @@ namespace TradingNetwork.API.Models
 {
     public class Buyer
     {
+        public Buyer()
+        {
+            SalesIds = new HashSet<Sale>();
+        }
+
         //public Guid Id { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         //public List<Guid> SalesIds { get; set; }
-        public List<int> SalesIds { get; set; }
+
+        public virtual ICollection<Sale> SalesIds { get; set; }
     }
 }

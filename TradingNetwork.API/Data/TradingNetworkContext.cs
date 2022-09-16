@@ -13,12 +13,23 @@ namespace TradingNetwork.API.Data
         public TradingNetworkContext(DbContextOptions<TradingNetworkContext> options) 
             : base(options)
         {
-
+            
         }
 
         public DbSet<Buyer> Buyers { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<SalesPoint> SalesPoints { get; set; }
         public DbSet<Sale> Sales { get; set; }
+
+        public DbSet<ProvidedProduct> ProvidedProducts { get; set; }
+        public DbSet<SaleData> SaleDatas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProvidedProduct>()
+                .HasKey(c => new { c.ProductId, c.SalesPointId });
+            modelBuilder.Entity<SaleData>()
+                .HasKey(c => new { c.ProductId, c.SaleId });
+        }
     }
 }

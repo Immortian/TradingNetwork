@@ -28,7 +28,10 @@ namespace TradingNetwork.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextFactory<TradingNetworkContext>();
+            services.AddDbContext<TradingNetworkContext>(options =>
+            {
+                options.UseInMemoryDatabase("TradingNetworkDb");
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -44,8 +47,19 @@ namespace TradingNetwork.API
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TradingNetwork.API v1"));
-            }
 
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var serviceProvider = scope.ServiceProvider;
+                    try
+                    {
+                        var context = serviceProvider.GetRequiredService<TradingNetworkContext>();
+                        DbInitializer.Initialize(context);
+                    }
+                    catch (Exception e) { }
+                }
+            }
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

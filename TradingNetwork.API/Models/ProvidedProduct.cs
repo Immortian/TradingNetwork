@@ -10,6 +10,10 @@ namespace TradingNetwork.API.Models
     {
         //public Guid ProductId { get; set; }
         public int ProductId { get; set; }
+        public int SalesPointId { get; set; }
         public int ProductQuantity { get; set; }
+
+        public virtual Product Product { get; set; }
+        public virtual SalesPoint SalesPoint { get; set; }
     }
 }

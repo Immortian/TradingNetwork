@@ -8,6 +8,11 @@ namespace TradingNetwork.API.Models
 {
     public class Sale
     {
+        public Sale()
+        {
+            SalesData = new HashSet<SaleData>();
+        }
+
         //public Guid Id { get; set; }
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
@@ -15,7 +20,8 @@ namespace TradingNetwork.API.Models
         public int SalesPointId { get; set; }
         //public Guid BuyerId { get; set; }
         public int BuyerId { get; set; }
-        public List<SaleData> SalesData { get; set; }
         public double TotalAmount { get; set; }
+
+        public virtual ICollection<SaleData> SalesData { get; set; }
     }
 }
