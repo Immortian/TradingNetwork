@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using TradingNetwork.API.Commands.CreateCommands;
 using TradingNetwork.API.Data;
 using TradingNetwork.API.Models;
 
@@ -33,24 +34,35 @@ namespace TradingNetwork.API.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Product value)
+        public void Post([FromBody] CreateProductCommand value)
         {
-            _context.Products.Add(value);
+            var product = new Product
+            {
+                Name = value.Name,
+                Price = value.Price
+            };
+            _context.Products.Add(product);
             _context.SaveChanges();
         }
 
         [HttpPut]
         public void Put([FromBody] Product value)
         {
-            _context.Update(value);
-            _context.SaveChanges();
+            if (value.Id != null && _context.Products.Where(x => x.Id == value.Id).Any())
+            {
+                _context.Update(value);
+                _context.SaveChanges();
+            }
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _context.Remove(_context.Products.Where(x => x.Id == id).FirstOrDefault());
-            _context.SaveChanges();
+            if (_context.Products.Where(x => x.Id == id).Any())
+            {
+                _context.Remove(_context.Products.Where(x => x.Id == id).FirstOrDefault());
+                _context.SaveChanges();
+            }
         }
     }
 }

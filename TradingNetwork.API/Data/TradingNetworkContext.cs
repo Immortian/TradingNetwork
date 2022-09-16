@@ -26,6 +26,22 @@ namespace TradingNetwork.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Buyer>()
+                .Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<SalesPoint>()
+                .Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Sale>()
+                .Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+
             modelBuilder.Entity<ProvidedProduct>()
                 .HasKey(c => new { c.ProductId, c.SalesPointId });
             modelBuilder.Entity<SaleData>()
