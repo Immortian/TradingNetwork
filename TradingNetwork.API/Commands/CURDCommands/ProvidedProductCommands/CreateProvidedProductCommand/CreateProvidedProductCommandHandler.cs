@@ -8,15 +8,15 @@ using TradingNetwork.API.Models;
 
 namespace TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.CreateProvidedProductCommand
 {
-    public class CreateProvidedProductCommandHandler
+    public class CreateProvidedProductsCommandHandler
     {
         private TradingNetworkContext _context;
 
-        public CreateProvidedProductCommandHandler(TradingNetworkContext context)
+        public CreateProvidedProductsCommandHandler(TradingNetworkContext context)
         {
             _context = context;
         }
-        
+
         public async Task Create(CreateProvidedProductCommand request)
         {
             var product = new ProvidedProduct

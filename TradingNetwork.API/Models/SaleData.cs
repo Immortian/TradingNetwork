@@ -15,5 +15,6 @@ namespace TradingNetwork.API.Models
         public double ProductIdAmount { get; set; }
 
         public virtual Sale Sale { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

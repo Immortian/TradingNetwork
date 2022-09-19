@@ -75,7 +75,7 @@ namespace TradingNetwork.API.Controllers
         [HttpPost("ProvidedProducts")]
         public async Task PostPProducts([FromBody] CreateProvidedProductCommand value)
         {
-            var handler = new CreateProvidedProductCommandHandler(_context);
+            var handler = new CreateProvidedProductsCommandHandler(_context);
             await handler.Create(value);
         }
 

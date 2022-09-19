@@ -19,12 +19,15 @@ namespace TradingNetwork.API.Data
             context.Database.EnsureCreated();
 
             context.Products.AddRange(RandomProducts());
+            context.SaveChanges();
             context.ProvidedProducts.AddRange(RandomProvidedProducts());
+            context.SaveChanges();
             context.SalesPoints.AddRange(RandomSalesPoints(context.ProvidedProducts.ToList()));
             context.SaleDatas.AddRange(RandomSaleData(context.Products.ToList()));
+            context.SaveChanges();
             context.Sales.AddRange(RandomSales(context.SaleDatas.ToList()));
+            context.SaveChanges();
             context.Buyers.AddRange(RandomBuyers(context.Sales.ToList()));
-
             context.SaveChanges();
         }
 

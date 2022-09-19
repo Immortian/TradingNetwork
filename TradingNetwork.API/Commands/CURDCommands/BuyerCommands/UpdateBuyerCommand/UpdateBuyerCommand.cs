@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TradingNetwork.API.Models;
 
-namespace TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.CreateSalesPointCommand
+namespace TradingNetwork.API.Commands.CURDCommands.BuyerCommands.UpdateBuyerCommand
 {
-    public class CreateSalesPointCommand
+    public class UpdateBuyerCommand
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
