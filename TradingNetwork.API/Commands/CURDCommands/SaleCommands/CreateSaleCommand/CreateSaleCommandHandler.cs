@@ -22,8 +22,7 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleCommands.CreateSaleComman
             {
                 SalesPointId = request.SalesPointId,
                 BuyerId = request.BuyerId,
-                DateTime = request.DateTime,
-                TotalAmount = request.TotalAmount
+                DateTime = request.DateTime
             };
             await _context.Sales.AddAsync(sale);
             await _context.SaveChangesAsync();

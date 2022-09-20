@@ -17,11 +17,11 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.UpdateSaleDa
         }
         public async Task Update(UpdateSaleDataCommand request)
         {
-            if (_context.SaleDatas.Where(x => x.SaleId == request.SalesId
+            if (_context.SaleDatas.Where(x => x.SaleId == request.SaleId
                                          && x.ProductId == request.ProductId).Any())
             {
                 var current = _context.SaleDatas
-                    .Where(x => x.SaleId == request.SalesId
+                    .Where(x => x.SaleId == request.SaleId
                         && x.ProductId == request.ProductId)
                     .FirstOrDefault();
 
@@ -31,6 +31,17 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.UpdateSaleDa
                     .FirstOrDefault().Price * request.ProductQuantity;
 
                 _context.Update(current);
+                await _context.SaveChangesAsync();
+
+                var sale = _context.Sales
+                .Where(x => x.Id == request.SaleId)
+                .FirstOrDefault();
+
+                sale.TotalAmount = _context.SaleDatas
+                    .Where(x => x.SaleId == request.SaleId)
+                    .Sum(x => x.ProductIdAmount);
+
+                _context.Sales.Update(sale);
                 await _context.SaveChangesAsync();
             }
         }

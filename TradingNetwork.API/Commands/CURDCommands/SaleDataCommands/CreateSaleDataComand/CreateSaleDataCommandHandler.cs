@@ -23,7 +23,7 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.CreateSaleDa
             var saleData = new SaleData
             {
                 ProductId = pId,
-                SaleId = request.SalesId,
+                SaleId = request.SaleId,
                 ProductQuantity = request.ProductQuantity,
                 ProductIdAmount = _context.Products
                     .Where(x => x.Id == pId)
@@ -34,6 +34,17 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.CreateSaleDa
                 _context.SaleDatas.Remove(saleData);
 
             await _context.SaleDatas.AddAsync(saleData);
+            await _context.SaveChangesAsync();
+
+            var sale = _context.Sales
+                .Where(x => x.Id == request.SaleId)
+                .FirstOrDefault();
+
+            sale.TotalAmount = _context.SaleDatas
+                .Where(x => x.SaleId == request.SaleId)
+                .Sum(x => x.ProductIdAmount);
+
+            _context.Sales.Update(sale);
             await _context.SaveChangesAsync();
         }
     }

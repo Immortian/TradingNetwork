@@ -11,6 +11,5 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleCommands.CreateSaleComman
         public DateTime DateTime { get; set; }
         public int SalesPointId { get; set; }
         public int BuyerId { get; set; }
-        public double TotalAmount { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.CreateSaleDa
     public class CreateSaleDataCommand
     {
         public int ProductId { get; set; }
-        public int SalesId { get; set; }
+        public int SaleId { get; set; }
         public int ProductQuantity { get; set; }
     }
 }

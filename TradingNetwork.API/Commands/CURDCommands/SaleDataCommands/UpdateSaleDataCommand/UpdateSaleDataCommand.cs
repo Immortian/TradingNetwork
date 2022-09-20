@@ -9,7 +9,7 @@ namespace TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.UpdateSaleDa
     public class UpdateSaleDataCommand
     {
         public int ProductId { get; set; }
-        public int SalesId { get; set; }
+        public int SaleId { get; set; }
         public int ProductQuantity { get; set; }
     }
 }
