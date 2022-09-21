@@ -1,16 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CRUD.API.Handlers.CURDHandlers.BuyerHandlers;
+using CRUD.API.Handlers.CURDHandlers.ProductHandlers;
+using CRUD.API.Handlers.CURDHandlers.ProvidedProductHandlers;
+using CRUD.API.Handlers.CURDHandlers.SaleDataHandlers;
+using CRUD.API.Handlers.CURDHandlers.SaleHandlers;
+using CRUD.API.Handlers.CURDHandlers.SalesPointHandlers;
+using Microsoft.EntityFrameworkCore;
+using Shared.Commands.BuyerCommands;
+using Shared.Commands.ProductCommands;
+using Shared.Commands.ProvidedProductCommands;
+using Shared.Commands.SaleCommands;
+using Shared.Commands.SaleDataCommands;
+using Shared.Commands.SalesPointCommands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TradingNetwork.API.Commands.CURDCommands.BuyerCommands.CreateBuyerCommand;
-using TradingNetwork.API.Commands.CURDCommands.ProductCommands.CreateProductCommand;
-using TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.CreateProvidedProductCommand;
-using TradingNetwork.API.Commands.CURDCommands.SaleCommands.CreateSaleCommand;
-using TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.CreateSaleDataCommand;
-using TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.CreateSalesPointCommand;
-using TradingNetwork.API.Models;
 
 namespace TradingNetwork.API.Data
 {
@@ -30,12 +35,12 @@ namespace TradingNetwork.API.Data
         {
             _context.Database.EnsureCreated();
 
-            await RandomProducts();
-            await RandomProvidedProducts();
+            await RandomBuyers();
+            await RandomProducts(); 
             await RandomSalesPoints();
+            await RandomProvidedProducts();
             await RandomSales();
             await RandomSaleData();
-            await RandomBuyers();
         }
 
         private static Random r = new Random();

@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRUD.API.Handlers.CURDHandlers.ProvidedProductHandlers;
+using CRUD.API.Handlers.CURDHandlers.ProvidedProductHanlders;
+using CRUD.API.Handlers.CURDHandlers.SalesPointHandlers;
+using Microsoft.AspNetCore.Mvc;
+using Shared.Commands.ProvidedProductCommands;
+using Shared.Commands.SalesPointCommands;
+using Shared.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.CreateProvidedProductCommand;
-using TradingNetwork.API.Commands.CURDCommands.ProvidedProductCommands.UpdateProvidedProductsCommand;
-using TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.CreateSalesPointCommand;
-using TradingNetwork.API.Commands.CURDCommands.SalesPointCommands.UpdateSalesPointCommand;
 using TradingNetwork.API.Data;
-using TradingNetwork.API.Models;
 
 namespace TradingNetwork.API.Controllers
 {

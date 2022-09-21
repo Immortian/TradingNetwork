@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRUD.API.Handlers.CURDHandlers.SaleDataHandlers;
+using CRUD.API.Handlers.CURDHandlers.SaleHandlers;
+using Microsoft.AspNetCore.Mvc;
+using Shared.Commands.SaleCommands;
+using Shared.Commands.SaleDataCommands;
+using Shared.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TradingNetwork.API.Commands.CURDCommands.SaleCommands.CreateSaleCommand;
-using TradingNetwork.API.Commands.CURDCommands.SaleCommands.UpdateSaleCommand;
-using TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.CreateSaleDataCommand;
-using TradingNetwork.API.Commands.CURDCommands.SaleDataCommands.UpdateSaleDataCommand;
 using TradingNetwork.API.Data;
-using TradingNetwork.API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -37,10 +37,10 @@ namespace TradingNetwork.API.Controllers
         }
 
         [HttpPost]
-        public async Task Post([FromBody] CreateSaleCommand value)
+        public async Task<Sale> Post([FromBody] CreateSaleCommand value)
         {
             var handler = new CreateSaleCommandHandler(_context);
-            await handler.Create(value);
+            return await handler.Create(value);
         }
 
         [HttpPut]

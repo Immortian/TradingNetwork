@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:63972",
-      "sslPort": 44396
+      "applicationUrl": "http://localhost:65004",
+      "sslPort": 44398
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TradingNetwork.API": {
+    "SaleAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TradingNetwork.API.Commands.CURDCommands.BuyerCommands.CreateBuyerCommand;
-using TradingNetwork.API.Commands.CURDCommands.BuyerCommands.UpdateBuyerCommand;
-using TradingNetwork.API.Commands.CURDCommands.SaleIdsCommands.UpdateSalesIdsCommand;
 using TradingNetwork.API.Data;
-using TradingNetwork.API.Models;
+using Shared.Commands.BuyerCommands;
+using CRUD.API.Handlers.CURDHandlers.BuyerHandlers;
+using CRUD.API.Handlers.CURDHandlers.SaleIdsHandlers;
+using Shared.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

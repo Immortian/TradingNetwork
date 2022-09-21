@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  crud.api:
+    image: crudapi
+    build:
+      context: .
+      dockerfile: TradingNetwork.API/Dockerfile
+
+  saleapi:
+    image: saleapi
+    build:
+      context: .
+      dockerfile: SaleAPI/Dockerfile
+

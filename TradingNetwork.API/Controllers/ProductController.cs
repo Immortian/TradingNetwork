@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRUD.API.Handlers.CURDHandlers.ProductHandlers;
+using Microsoft.AspNetCore.Mvc;
+using Shared.Commands.ProductCommands;
+using Shared.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TradingNetwork.API.Commands.CURDCommands.ProductCommands.CreateProductCommand;
-using TradingNetwork.API.Commands.CURDCommands.ProductCommands.UpdateProductCommand;
 using TradingNetwork.API.Data;
-using TradingNetwork.API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -44,7 +44,7 @@ namespace TradingNetwork.API.Controllers
         [HttpPut]
         public async Task Put([FromBody] Product value)
         {
-            var handler = new UpdateProductComandHandler(_context);
+            var handler = new UpdateProductCommandHandler(_context);
             await handler.Update(value);
         }
 

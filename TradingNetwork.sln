@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradingNetwork.API", "TradingNetwork.API\TradingNetwork.API.csproj", "{621A9606-1755-45A2-B59B-942C1475D20E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.API", "TradingNetwork.API\CRUD.API.csproj", "{621A9606-1755-45A2-B59B-942C1475D20E}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{974786DF-4194-48CD-B69D-9ABAA0D33732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{9E3D7474-359C-475B-BA4E-03CDC1429DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleAPI", "SaleAPI\SaleAPI.csproj", "{4AD130A8-9340-4B17-B2DA-A3F72389774D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{621A9606-1755-45A2-B59B-942C1475D20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{621A9606-1755-45A2-B59B-942C1475D20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{621A9606-1755-45A2-B59B-942C1475D20E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{974786DF-4194-48CD-B69D-9ABAA0D33732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{974786DF-4194-48CD-B69D-9ABAA0D33732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{974786DF-4194-48CD-B69D-9ABAA0D33732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{974786DF-4194-48CD-B69D-9ABAA0D33732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3D7474-359C-475B-BA4E-03CDC1429DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3D7474-359C-475B-BA4E-03CDC1429DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3D7474-359C-475B-BA4E-03CDC1429DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3D7474-359C-475B-BA4E-03CDC1429DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
