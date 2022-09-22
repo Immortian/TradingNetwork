@@ -19,7 +19,12 @@ namespace CRUD.API.Handlers.CURDHandlers.ProductHandlers
         {
             if (_context.Products.Where(x => x.Id == request.Id).Any())
             {
-                _context.Update(request);
+                var current = _context.Products.Where(x => x.Id == request.Id).FirstOrDefault();
+
+                current.Name = request.Name;
+                current.Price = request.Price;
+
+                _context.Update(current);
                 await _context.SaveChangesAsync();
             }
         }

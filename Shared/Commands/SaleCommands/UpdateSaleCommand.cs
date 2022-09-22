@@ -10,8 +10,6 @@ namespace Shared.Commands.SaleCommands
     {
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
-        public int SalesPointId { get; set; }
-        public int BuyerId { get; set; }
         public double TotalAmount { get; set; }
     }
 }

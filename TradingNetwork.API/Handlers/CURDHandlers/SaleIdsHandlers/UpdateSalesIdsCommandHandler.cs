@@ -15,6 +15,8 @@ namespace CRUD.API.Handlers.CURDHandlers.SaleIdsHandlers
         {
             _context = context;
         }
+
+        //Useless
         public async Task Update()
         {
             foreach (var sale in _context.Sales)

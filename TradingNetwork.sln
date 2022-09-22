@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD.API", "TradingNetwork.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{974786DF-4194-48CD-B69D-9ABAA0D33732}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{9E3D7474-359C-475B-BA4E-03CDC1429DD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{9E3D7474-359C-475B-BA4E-03CDC1429DD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaleAPI", "SaleAPI\SaleAPI.csproj", "{4AD130A8-9340-4B17-B2DA-A3F72389774D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaleAPI", "SaleAPI\SaleAPI.csproj", "{4AD130A8-9340-4B17-B2DA-A3F72389774D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{12A38187-0710-4E33-946F-D1F0F23EA6C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD130A8-9340-4B17-B2DA-A3F72389774D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A38187-0710-4E33-946F-D1F0F23EA6C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A38187-0710-4E33-946F-D1F0F23EA6C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A38187-0710-4E33-946F-D1F0F23EA6C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A38187-0710-4E33-946F-D1F0F23EA6C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

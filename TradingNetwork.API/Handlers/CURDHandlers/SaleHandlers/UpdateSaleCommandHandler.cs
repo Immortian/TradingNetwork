@@ -23,8 +23,6 @@ namespace CRUD.API.Handlers.CURDHandlers.SaleHandlers
             {
                 var current = _context.Sales.Where(x => x.Id == request.Id).FirstOrDefault();
 
-                current.SalesPointId = request.SalesPointId;
-                current.BuyerId = request.BuyerId;
                 current.DateTime = request.DateTime;
                 current.TotalAmount = request.TotalAmount;
 
